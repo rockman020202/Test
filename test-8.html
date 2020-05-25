@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form id="text">
+  単価  <input type="text" name="" id="text-1">
+   数量  <input type="text" name="" id="text-2">
+   合計 <input type="text" name="" id="text-3"><br>
+   <input id="button-2" type="button" value="lưu">
+   <input id="button" type="button" value="clear" >
+  </form>
+  <p id="id"></p>
+  <script>
+    var d,s,t,a;
+    var add=[];
+    
+    function tongtien(){
+         d = document.getElementById("text-1").value;
+         s = document.getElementById("text-2").value;
+         t=  document.getElementById("text-3").value= d*s;
+          
+      }
+        
+         t =document.getElementById("text-1").onchange=function(){tongtien()};
+         s =document.getElementById("text-2").onchange=function(){tongtien()};
+        document.getElementById("button-2").onclick=test; 
+        function test(){
+         var a = add.push(t);
+            var i;
+            var p="<ul>";
+            for(i=0;i<add.length;i++){
+                if(add[i]==0){
+                    p+=0;
+                }
+                else{
+                    p+="<li>"+i+":"+add[i]+"</li>";
+                }
+            }
+            document.getElementById("id").innerHTML=p;
+            p+="</ul>"
+           var myjson = JSON.stringify(p);
+           localStorage.setItem(i,myjson);
+    }
+        
+         document.getElementById("button").onclick=res;
+        function res(){
+          document.getElementById("text").reset();
+        }
+  
+
+    </script>  
+</body>
+</html>
